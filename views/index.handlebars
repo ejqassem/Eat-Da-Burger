@@ -1,0 +1,42 @@
+<h3> Uneaten Burgers: </h3>
+<div class="table-responsive">
+  <table class= "table table-hover">
+    <tr>
+      <th> Burger Name: </th>
+      <th> Press to Eat this Burger: </th>
+    </tr>
+    {{#each Uneaten}}
+      <tr class="sucess">
+        <td> {{burger_name}} </td>
+        <td>
+          <form action="/{{id}}?_method=PUT" method="POST">
+            <input type="hidden" name="eaten" value="{{id}}">
+          <button class="btn primary-btn" type="submit"> Eat this Burger</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+
+<h3> Eaten Burgers: </h3>
+<div class="table-responsive">
+  <table class="table table-hover table-responsive">
+    <tr>
+      <th> Burger Name: </th>
+    </tr>
+    {{#each Eaten}}
+      <tr class="info">
+        <td> {{burger_name}} </td>
+    {{/each}}
+  </table>
+</div>
+
+<h3> Add a new burger </h3>
+<form action="/" method="POST">
+  <div class="form-group">
+    <label for="burger">Name of Burger:</label>
+    <input type="text" class="form-control" id="burger" name="newburger">
+  </div>
+  <button type="submit" class="btn btn-default">Add Burger</button>
+</form>
